@@ -44,23 +44,38 @@
     <!-- 前端讀取邏輯 -->
     <script>
         async function loadWeather() {
-            try {
-                const response = await fetch('./weather.json?t=' + new Date().getTime());
-                if (!response.ok) throw new Error('無法讀取天氣資料');
-                
-                const data = await response.json();
-                
-                document.getElementById('update-time').innerText = `最後更新：${data.last_updated}`;
-                document.getElementById('temp').innerText = `${data.temperature}°C`;
-                document.getElementById('weather-desc').innerText = data.weather_desc;
-                document.getElementById('humidity').innerText = `${data.humidity}%`;
-                document.getElementById('wind').innerText = `${data.wind_direction} ${data.wind_speed}`;
-                
-            } catch (error) {
-                console.error(error);
-                document.getElementById('weather-desc').innerText = '暫時無法取得天氣';
-            }
+    try {
+        const response = await fetch('./weather.json?t=' + new Date().getTime());
+        if (!response.ok) throw new Error('無法讀取天氣資料');
+        
+        const data = await response.json();
+        
+        // --- 核心：將後端時間轉換為用戶端本地時區顯示 ---
+        let formattedTime = data.last_updated;
+        if (data.last_updated) {
+            const dateObj = new Date(data.last_updated); // 瀏覽器會自動解析並轉成用戶端時區
+            formattedTime = dateObj.toLocaleString('zh-Hant', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false // 24小時制
+            });
         }
+        
+        document.getElementById('update-time').innerText = `最後更新：${formattedTime}`;
+        document.getElementById('temp').innerText = `${data.temperature}°C`;
+        document.getElementById('weather-desc').innerText = data.weather_desc;
+        document.getElementById('humidity').innerText = `${data.humidity}%`;
+        document.getElementById('wind').innerText = `${data.wind_direction} ${data.wind_speed}`;
+        
+    } catch (error) {
+        console.error(error);
+        document.getElementById('weather-desc').innerText = '暫時無法取得天氣';
+    }
+}
 
         loadWeather();
     </script>
