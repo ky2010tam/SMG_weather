@@ -1,110 +1,94 @@
 {
-    "last_updated": "2026-11-11T08:34:54Z",
+    "last_updated": "2026-11-11T08:39:29Z",
     "current_weather": {
-        "wind_speed": "二級",
-        "weather_desc": "01"
+        "temperature": "",
+        "humidity": "",
+        "weather_desc": "01",
+        "wind_direction": "",
+        "wind_speed": "二級"
     },
-    "forecast_7days": [
-        {
-            "system": "",
-            "custom": ""
+    "forecast_7days": [],
+    "air_quality": {
+        "datetime": "2026-11-11 16:35",
+        "pohopolu": {
+            "Chinese": "荷蘭園（路邊）",
+            "Portuguese": "Conselheiro Ferreira de Almeida (Berma da Estrada)",
+            "English": "Conselheiro Ferreira de Almeida (Roadside)",
+            "DDTT": "2026111116",
+            "CODE": "PO",
+            "HE_SO2": "3.171",
+            "HE_NO2": "66.519",
+            "HE_O3": "70.860",
+            "HE_PM2_5": "19.000",
+            "HE_CO": "0.480",
+            "HE_PM10": "33.000"
         },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-11",
-            "c_dayofweek": "三",
-            "icon": "",
-            "weatherstatus": "02",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "天氣乾燥。天晴，部份時間多雲。吹3至4級東北風。"
+        "khhopolu": {
+            "Chinese": "九澳（路邊）",
+            "Portuguese": "Ka-Hó (Berma da Estrada)",
+            "English": "Ka-Hó (Roadside)",
+            "DDTT": "2026111116",
+            "CODE": "KH",
+            "HE_SO2": "5.412",
+            "HE_NO2": "36.073",
+            "HE_O3": "157.984",
+            "HE_PM2_5": "25.000",
+            "HE_CO": "0.338",
+            "HE_PM10": "69.000"
         },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-12",
-            "c_dayofweek": "四",
-            "icon": "",
-            "weatherstatus": "02",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "多雲，部份時間有陽光。吹3至4級東至東北風。"
+        "enhopolu": {
+            "Chinese": "台山（高密度住宅區）",
+            "Portuguese": "Bairro de Tamagnini Barbosa (Alta Densidade Habitacional)",
+            "English": "Bairro de Tamagnini Barbosa (High Density Residental Area)",
+            "DDTT": "2026111116",
+            "CODE": "EN",
+            "HE_SO2": "4.024",
+            "HE_NO2": "62.885",
+            "HE_O3": "114.820",
+            "HE_PM2_5": "14.000",
+            "HE_CO": "0.490",
+            "HE_PM10": "44.000"
         },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-13",
-            "c_dayofweek": "五",
-            "icon": "",
-            "weatherstatus": "29",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "多雲，短暫時間有陽光。晚間有幾陣驟雨。吹3至4級偏東風。"
+        "tchopolu": {
+            "Chinese": "氹仔中心區（高密度住宅區）",
+            "Portuguese": "Baixa da Taipa (Alta Densidade Habitacional)",
+            "English": "Baixa da Taipa (High Density Residental Area)",
+            "DDTT": "2026111116",
+            "CODE": "TC",
+            "HE_SO2": "2.399",
+            "HE_NO2": "31.015",
+            "HE_O3": "81.273",
+            "HE_PM2_5": "20.000",
+            "HE_CO": "0.601",
+            "HE_PM10": "48.000"
         },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-14",
-            "c_dayofweek": "六",
-            "icon": "",
-            "weatherstatus": "16",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "大致多雲。間中有驟雨。吹微風。"
+        "tghopolu": {
+            "Chinese": "大潭山（一般性）",
+            "Portuguese": "Taipa Grande (Ambiental)",
+            "English": "Taipa Grande (Ambient)",
+            "DDTT": "2026111116",
+            "CODE": "TG",
+            "HE_SO2": "1.733",
+            "HE_NO2": "25.160",
+            "HE_O3": "148.400",
+            "HE_PM2_5": "19.000",
+            "HE_CO": "0.658",
+            "HE_PM10": "40.000"
         },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-15",
-            "c_dayofweek": "日",
-            "icon": "",
-            "weatherstatus": "02",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "多雲，短暫時間有陽光。吹微風，後轉3至4級東至東南風。"
-        },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-16",
-            "c_dayofweek": "一",
-            "icon": "",
-            "weatherstatus": "28",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "多雲，短暫時間有陽光。有幾陣雨。吹2至4級東至東南風。"
-        },
-        {
-            "astronomicaltide": "NIL",
-            "validfor": "2026-11-17",
-            "c_dayofweek": "二",
-            "icon": "",
-            "weatherstatus": "28",
-            "temperature": "",
-            "humidity": "",
-            "weatherdescription": "多雲，短暫時間有陽光。有幾陣雨。吹2至3級東至東南風。"
+        "cdhopolu": {
+            "Chinese": "石排灣（一般性）",
+            "Portuguese": "Seac Pai Van (Ambiental)",
+            "English": "Seac Pai Van (Ambient)",
+            "DDTT": "2026111116",
+            "CODE": "CD",
+            "HE_SO2": null,
+            "HE_NO2": null,
+            "HE_O3": null,
+            "HE_PM2_5": "17.000",
+            "HE_CO": null,
+            "HE_PM10": "37.000"
         }
-    ],
-    "air_quality": [
-        {
-            "file": [],
-            "dataDir": [
-                {
-                    "visits": 685,
-                    "publishTime": "2019-07-02 10:51:16",
-                    "name": "空氣污染物實測濃度",
-                    "downloadTimes": 0,
-                    "description": "每小時錄得的空氣污染物濃度。",
-                    "theme": "城市環境",
-                    "updateTime": "2023-12-05 16:22:47",
-                    "department": "地球物理氣象局",
-                    "openType": "完全開放",
-                    "frequency": ""
-                }
-            ],
-            "url": [
-                {
-                    "urlName": "空氣污染物實測濃度",
-                    "url": "https://www.smg.gov.mo/smg/airQuality/latestAirConcentration.json"
-                }
-            ]
-        }
-    ],
+    },
     "warnings": {
         "rainstorm": null,
         "tropical_cyclone": null,
