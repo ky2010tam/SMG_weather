@@ -3,81 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澳門即時天氣 Web App</title>
-    <!-- 引入 Tailwind CSS -->
+    <title>澳門環境與氣象監測網</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js 繪製溫度折線圖 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-500 to-sky-400 text-white min-h-screen flex flex-col justify-between p-4">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
 
-    <!-- 頂部 -->
-    <header class="text-center pt-6">
-        <h1 class="text-2xl font-bold">🇲🇴 澳門即時天氣</h1>
-        <p class="text-xs text-sky-100 mt-1" id="update-time">更新時間：載入中...</p>
+    <!-- 頂部標題列 -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">🇲🇴 澳門氣象與環境監測</h1>
+            <span id="update-time" class="text-xs text-blue-100">最後更新：載入中...</span>
+        </div>
     </header>
 
-    <!-- 主要氣象大卡片 -->
-    <main class="container mx-auto max-w-sm my-auto">
-        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center shadow-lg border border-white/20">
-            <div class="text-6xl mb-3">🌤️</div>
-            <h2 class="text-5xl font-extrabold mb-2" id="temp">--°C</h2>
-            <p class="text-xl font-medium mb-6" id="weather-desc">載入中...</p>
-            
-            <!-- 詳細數據格 -->
-            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/20 text-sm">
+    <!-- 主要內容區 -->
+    <main class="max-w-4xl mx-auto px-4 py-6 w-full space-y-6 flex-grow">
+        
+        <!-- 1. 測站選擇與即時天氣卡片 -->
+        <section class="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
-                    <span class="block text-sky-200">相對濕度</span>
-                    <span class="font-bold text-lg" id="humidity">--%</span>
+                    <h2 class="text-lg font-semibold text-slate-700">即時氣象概況</h2>
+                    <p id="station-notice" class="text-xs text-slate-400">正在自動對應距離最近的測站...</p>
                 </div>
-                <div>
-                    <span class="block text-sky-200">風向 / 風速</span>
-                    <span class="font-bold text-lg" id="wind">--</span>
+                <!-- 測站下拉選單 -->
+                <div class="w-full sm:w-auto">
+                    <label for="station-select" class="block text-xs font-medium text-slate-500 mb-1">選擇觀測站：</label>
+                    <select id="station-select" onchange="changeStation(this.value)" class="w-full sm:w-48 bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <!-- 動態載入 -->
+                    </select>
                 </div>
             </div>
-        </div>
+
+            <!-- 核心天氣數據展示 -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                <div class="bg-blue-50 rounded-xl p-4">
+                    <p class="text-xs text-blue-500 font-medium mb-1">氣溫</p>
+                    <p id="curr-temp" class="text-3xl font-bold text-blue-700">--°C</p>
+                </div>
+                <div class="bg-teal-50 rounded-xl p-4">
+                    <p class="text-xs text-teal-500 font-medium mb-1">相對濕度</p>
+                    <p id="curr-humidity" class="text-3xl font-bold text-teal-700">--%</p>
+                </div>
+                <div class="bg-amber-50 rounded-xl p-4">
+                    <p class="text-xs text-amber-500 font-medium mb-1">風向</p>
+                    <p id="curr-wind-dir" class="text-xl font-bold text-amber-700">--</p>
+                </div>
+                <div class="bg-indigo-50 rounded-xl p-4">
+                    <p class="text-xs text-indigo-500 font-medium mb-1">風速</p>
+                    <p id="curr-wind-speed" class="text-2xl font-bold text-indigo-700">--</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 7日天氣預報與溫度折線圖 -->
+        <section class="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+            <h2 class="text-lg font-semibold text-slate-700 mb-4">未來 7 日氣溫趨勢</h2>
+            <!-- Chart.js 畫布 -->
+            <div class="relative h-64 w-full">
+                <canvas id="tempChart"></canvas>
+            </div>
+        </section>
+
     </main>
 
-    <!-- 頁尾 -->
-    <footer class="text-center pb-4 text-xs text-sky-200">
-        數據來源：澳門地球物理氣象局 (SMG)
+    <!-- 頁腳 -->
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-400">
+        Data source: Macao Meteorological and Geophysical Bureau (SMG) & Data.gov.mo
     </footer>
 
-    <!-- 前端讀取邏輯 -->
+    <!-- JavaScript 邏輯 -->
     <script>
-        async function loadWeather() {
-    try {
-        const response = await fetch('./weather.json?t=' + new Date().getTime());
-        if (!response.ok) throw new Error('無法讀取天氣資料');
-        
-        const data = await response.json();
-        
-        // --- 核心：將後端時間轉換為用戶端本地時區顯示 ---
-        let formattedTime = data.last_updated;
-        if (data.last_updated) {
-            const dateObj = new Date(data.last_updated); // 瀏覽器會自動解析並轉成用戶端時區
-            formattedTime = dateObj.toLocaleString('zh-Hant', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false // 24小時制
+        let weatherGlobalData = null;
+        let tempChartInstance = null;
+
+        // 澳門各主要測站的約略座標（用於計算最近距離）
+        const stationCoords = {
+            "大潭山": { lat: 22.153, lon: 113.565 },
+            "紀念孫中山市政公園": { lat: 22.213, lon: 113.543 },
+            "黑沙環": { lat: 22.208, lon: 113.551 },
+            "大炮台": { lat: 22.193, lon: 113.541 },
+            "外港": { lat: 22.195, lon: 113.555 },
+            "媽閣": { lat: 22.185, lon: 113.533 },
+            "九澳": { lat: 22.126, lon: 113.585 },
+            "澳門大學": { lat: 22.140, lon: 113.544 },
+            "路環市區": { lat: 22.120, lon: 113.560 }
+        };
+
+        // 計算兩點間距離（簡單歐幾里得距離估算）
+        function getDistance(lat1, lon1, lat2, lon2) {
+            return Math.sqrt(Math.pow(lat1 - lat2, 2) + Math.pow(lon1 - lon2, 2));
+        }
+
+        async function initWeatherApp() {
+            try {
+                const response = await fetch('./weather.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('無法讀取 weather.json');
+                
+                weatherGlobalData = await response.json();
+
+                // 1. 處理最後更新時間（自動轉用戶端時區）
+                if (weatherGlobalData.last_updated) {
+                    const dateObj = new Date(weatherGlobalData.last_updated);
+                    document.getElementById('update-time').innerText = `最後更新：${dateObj.toLocaleString('zh-Hant', { hour12: false })}`;
+                }
+
+                // 2. 解析測站資料並填入下拉選單
+                populateStations();
+
+                // 3. 繪製 7 日溫度折線圖
+                renderTempChart(weatherGlobalData.forecast_7days);
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('station-notice').innerText = '載入氣象資料失敗';
+            }
+        }
+
+        function populateStations() {
+            const selectElem = document.getElementById('station-select');
+            selectElem.innerHTML = '';
+
+            // 從 stations_weather 找出所有有 stationname 的測站
+            let stations = [];
+            let currentGroup = {};
+            
+            weatherGlobalData.stations_weather.forEach(item => {
+                if (item.stationname) {
+                    if (currentGroup.name) stations.push(currentGroup);
+                    currentGroup = { name: item.stationname, data: {} };
+                }
+                if (item.measureunit && item.value) {
+                    currentGroup.data[item.measureunit] = item.value;
+                    if (item.winddescription) currentGroup.windDesc = item.winddescription;
+                }
+            });
+            if (currentGroup.name) stations.push(currentGroup);
+
+            // 嘗試取得用戶地理位置以自動選取最近測站
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLat = position.coords.latitude;
+                    const userLon = position.coords.longitude;
+                    
+                    let closestStation = stations[0].name;
+                    let minDistance = Infinity;
+
+                    stations.forEach(st => {
+                        if (stationCoords[st.name]) {
+                            let dist = getDistance(userLat, userLon, stationCoords[st.name].lat, stationCoords[st.name].lon);
+                            if (dist < minDistance) {
+                                minDistance = dist;
+                                closestStation = st.name;
+                            }
+                        }
+                    });
+
+                    buildSelectOptions(stations, closestStation);
+                    updateStationDisplay(closestStation, stations);
+                    document.getElementById('station-notice').innerText = `已自動切換至距離您最近的測站：${closestStation}`;
+                }, () => {
+                    // 若用戶拒絕定位，預設選「大潭山」
+                    buildSelectOptions(stations, "大炮台");
+                    updateStationDisplay("大炮台", stations);
+                });
+            } else {
+                buildSelectOptions(stations, "大炮台");
+                updateStationDisplay("大炮台", stations);
+            }
+        }
+
+        function buildSelectOptions(stations, defaultName) {
+            const selectElem = document.getElementById('station-select');
+            stations.forEach(st => {
+                const opt = document.createElement('option');
+                opt.value = st.name;
+                opt.innerText = st.name;
+                if (st.name === defaultName) opt.selected = true;
+                selectElem.appendChild(opt);
             });
         }
-        
-        document.getElementById('update-time').innerText = `最後更新：${formattedTime}`;
-        document.getElementById('temp').innerText = `${data.temperature}°C`;
-        document.getElementById('weather-desc').innerText = data.weather_desc;
-        document.getElementById('humidity').innerText = `${data.humidity}%`;
-        document.getElementById('wind').innerText = `${data.wind_direction} ${data.wind_speed}`;
-        
-    } catch (error) {
-        console.error(error);
-        document.getElementById('weather-desc').innerText = '暫時無法取得天氣';
-    }
-}
 
-        loadWeather();
+        function changeStation(stationName) {
+            let stations = extractStationsData();
+            updateStationDisplay(stationName, stations);
+        }
+
+        function extractStationsData() {
+            let stations = [];
+            let currentGroup = {};
+            weatherGlobalData.stations_weather.forEach(item => {
+                if (item.stationname) {
+                    if (currentGroup.name) stations.push(currentGroup);
+                    currentGroup = { name: item.stationname, data: {}, windDesc: "--" };
+                }
+                if (item.measureunit) {
+                    currentGroup.data[item.measureunit] = item.value || "--";
+                }
+                if (item.winddescription) {
+                    currentGroup.windDesc = item.winddescription;
+                }
+            });
+            if (currentGroup.name) stations.push(currentGroup);
+            return stations;
+        }
+
+        function updateStationDisplay(stationName, stations) {
+            const target = stations.find(s => s.name === stationName) || stations[0];
+            if (!target) return;
+
+            // 根據 XML 結構中對應的 measureunit 填入數值
+            // °C 通常有不同 type，我們抓取一般溫度或 dvalue
+            let temp = "--";
+            let humidity = "--";
+            let windSpeed = "--";
+
+            // 從該測站的資料中尋找對應數值
+            weatherGlobalData.stations_weather.forEach((item, idx, arr) => {
+                if (item.stationname === stationName) {
+                    // 往後尋找直到下一個 stationname
+                    for (let i = idx + 1; i < arr.length; i++) {
+                        if (arr[i].stationname) break;
+                        if (arr[i].measureunit === '°C' && arr[i].type === '3') temp = arr[i].value;
+                        if (arr[i].measureunit === '%' && arr[i].type === '3') humidity = arr[i].value;
+                        if (arr[i].measureunit === 'km/h' && arr[i].type === '3') windSpeed = arr[i].value + ' km/h';
+                        if (arr[i].winddescription) target.windDesc = arr[i].winddescription;
+                    }
+                }
+            });
+
+            document.getElementById('curr-temp').innerText = temp !== "--" ? `${temp}°C` : "--°C";
+            document.getElementById('curr-humidity').innerText = humidity !== "--" ? `${humidity}%` : "--%";
+            document.getElementById('curr-wind-dir').innerText = target.windDesc || "多變";
+            document.getElementById('curr-wind-speed').innerText = windSpeed;
+        }
+
+        function renderTempChart(forecasts) {
+            const labels = [];
+            const maxTemps = [];
+            const minTemps = [];
+
+            // 由於氣象局 7 日預報描述中可能包含溫度，我們從 weatherdescription 解析或預設模擬趨勢
+            // 這裡示範建立圖表框架，並透過解析文字或預設數據呈現
+            forecasts.forEach(f => {
+                labels.push(`${f.validfor || ''} (${f.c_dayofweek || ''})`);
+                
+                // 嘗試從 weatherdescription 提取溫度數字（例如 "最高26度，最低19度"）
+                let maxT = 25; // 預設值
+                let minT = 18; // 預設值
+                if (f.weatherdescription) {
+                    const matches = f.weatherdescription.match(/\d+/g);
+                    if (matches && matches.length >= 2) {
+                        maxT = parseInt(matches[0]);
+                        minT = parseInt(matches[1]);
+                        if (maxT < minT) { [maxT, minT] = [minT, maxT]; } // 確保 max > min
+                    }
+                }
+                maxTemps.push(maxT);
+                minTemps.push(minT);
+            });
+
+            const ctx = document.getElementById('tempChart').getContext('2d');
+            if (tempChartInstance) tempChartInstance.destroy();
+
+            tempChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: '預測最高溫 (°C)',
+                            data: maxTemps,
+                            borderColor: 'rgb(239, 68, 68)',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: false
+                        },
+                        {
+                            label: '預測最低溫 (°C)',
+                            data: minTemps,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 頁面載入時執行
+        window.onload = initWeatherApp;
     </script>
 </body>
 </html>
