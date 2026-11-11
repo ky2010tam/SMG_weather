@@ -7,9 +7,13 @@ def fetch_macau_weather():
     url = "https://xml.smg.gov.mo/c_actual_brief.xml"
     headers = {'User-Agent': 'Mozilla/5.0'}
     
-    # 計算澳門時間 (UTC + 8)
-    macau_time = datetime.utcnow() + timedelta(hours=8)
-    formatted_time = macau_time.strftime("%Y-%m-%d %H:%M:%S")
+    # 將原本抓澳門時間的程式碼改為抓 UTC 標準時間
+utc_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+
+weather_data = {
+    "last_updated": utc_time,  # 格式會變成如 "2026-11-11T08:08:22Z"
+    # ... 其餘氣象數據
+}
     
     try:
         resp = requests.get(url, headers=headers, timeout=10)
