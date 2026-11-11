@@ -3,58 +3,83 @@ import json
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
-def fetch_all_weather_data():
+def fetch_all_smg_data():
     headers = {'User-Agent': 'Mozilla/5.0'}
     utc_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     
-    combined_data = {
+    master_data = {
         "last_updated": utc_time,
-        "current": {},
+        "current_weather": {},
         "forecast_7days": [],
-        "warnings": []
+        "air_quality": [],
+        "warnings": {
+            "rainstorm": None,
+            "tropical_cyclone": None,
+            "thunderstorm": None
+        }
     }
     
-    # 1. 抓取「實時天氣簡報」
+    # 1. 抓取實時天氣 (Tempo Presente)
     try:
-        url_brief = "https://xml.smg.gov.mo/c_actual_brief.xml"
-        resp = requests.get(url_brief, headers=headers, timeout=10)
+        url = "https://xml.smg.gov.mo/c_actual_brief.xml"
+        resp = requests.get(url, headers=headers, timeout=10)
         resp.encoding = 'utf-8'
         root = ET.fromstring(resp.text)
         
-        combined_data["current"] = {
-            "temperature": root.find('.//temperature').text if root.find('.//temperature') is not None else "--",
-            "humidity": root.find('.//humidity').text if root.find('.//humidity') is not None else "--",
-            "weather_desc": root.find('.//weather').text if root.find('.//weather') is not None else "晴",
-            "wind_direction": root.find('.//windDirection').text if root.find('.//windDirection') is not None else "--",
-            "wind_speed": root.find('.//windSpeed').text if root.find('.//windSpeed') is not None else "--"
-        }
+        current = {}
+        for elem in root.iter():
+            if elem.tag and elem.text and elem.text.strip():
+                tag_name = elem.tag.lower()
+                # 收集實時數據的常用欄位
+                if 'temp' in tag_name:
+                    current['temperature'] = elem.text.strip()
+                elif 'humid' in tag_name:
+                    current['humidity'] = elem.text.strip()
+                elif 'weather' in tag_name and len(elem.text.strip()) < 30:
+                    current['weather_desc'] = elem.text.strip()
+                elif 'winddir' in tag_name:
+                    current['wind_direction'] = elem.text.strip()
+                elif 'windspeed' in tag_name:
+                    current['wind_speed'] = elem.text.strip()
+                    
+        master_data["current_weather"] = current if current else {"status": "資料暫缺"}
     except Exception as e:
-        print(f"Error fetching current weather: {e}")
-        combined_data["current"] = {"temperature": "24", "humidity": "75", "weather_desc": "晴"}
+        print(f"Error fetching actual weather: {e}")
 
-    # 2. 抓取「七日天氣預報」 (示範多API抓取結構)
+    # 2. 抓取七日天氣預報 (Previsao 7 dias)
     try:
-        url_7days = "https://xml.smg.gov.mo/c_7daysforecast.xml"
-        resp_7 = requests.get(url_7days, headers=headers, timeout=10)
-        resp_7.encoding = 'utf-8'
-        root_7 = ET.fromstring(resp_7.text)
+        url = "https://xml.smg.gov.mo/c_7daysforecast.xml"
+        resp = requests.get(url, headers=headers, timeout=10)
+        resp.encoding = 'utf-8'
+        root = ET.fromstring(resp.text)
         
-        # 假設氣象局 7 日預報的子標籤是 forecast 或 day
-        for day_elem in root_7.findall('.//forecast') or root_7.findall('.//item'):
-            day_data = {
-                "date": day_elem.find('date').text if day_elem.find('date') is not None else "",
-                "max_temp": day_elem.find('maxTemp').text if day_elem.find('maxTemp') is not None else "",
-                "min_temp": day_elem.find('minTemp').text if day_elem.find('minTemp') is not None else "",
-                "weather": day_elem.find('weather').text if day_elem.find('weather') is not None else ""
-            }
-            combined_data["forecast_7days"].append(day_data)
+        forecasts = []
+        for item in root.iter():
+            # 尋找預報節點
+            if 'forecast' in item.tag.lower() or 'day' in item.tag.lower() or 'item' in item.tag.lower():
+                day_data = {}
+                for child in item:
+                    if child.tag and child.text:
+                        day_data[child.tag.lower()] = child.text.strip()
+                if day_data and day_data not in forecasts:
+                    forecasts.append(day_data)
+        master_data["forecast_7days"] = forecasts
     except Exception as e:
         print(f"Error fetching 7-day forecast: {e}")
 
-    # 寫入整合成一個大檔案
+    # 3. 抓取空氣污染物實測濃度 (JSON 格式 API)
+    try:
+        url = "https://api.data.gov.mo/document/download/8d089bb5-5b2d-4b56-9f47-efbc35fe8870?token=null&isNeedFile=0&lang=TC"
+        resp = requests.get(url, headers=headers, timeout=10)
+        data = resp.json()
+        master_data["air_quality"] = data if isinstance(data, list) else [data]
+    except Exception as e:
+        print(f"Error fetching air quality: {e}")
+
+    # 4. 寫入總合的 weather.json
     with open("weather.json", "w", encoding="utf-8") as f:
-        json.dump(combined_data, f, ensure_ascii=False, indent=4)
-    print("Success: All weather APIs combined into weather.json.")
+        json.dump(master_data, f, ensure_ascii=False, indent=4)
+    print("Success: All SMG data successfully consolidated into weather.json.")
 
 if __name__ == "__main__":
-    fetch_all_weather_data()
+    fetch_all_smg_data()
