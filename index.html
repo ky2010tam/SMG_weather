@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳門即時天氣 Web App</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-500 to-sky-400 text-white min-h-screen flex flex-col justify-between p-4">
+
+    <!-- 頂部 -->
+    <header class="text-center pt-6">
+        <h1 class="text-2xl font-bold">🇲🇴 澳門即時天氣</h1>
+        <p class="text-xs text-sky-100 mt-1" id="update-time">更新時間：載入中...</p>
+    </header>
+
+    <!-- 主要氣象大卡片 -->
+    <main class="container mx-auto max-w-sm my-auto">
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center shadow-lg border border-white/20">
+            <div class="text-6xl mb-3">🌤️</div>
+            <h2 class="text-5xl font-extrabold mb-2" id="temp">--°C</h2>
+            <p class="text-xl font-medium mb-6" id="weather-desc">載入中...</p>
+            
+            <!-- 詳細數據格 -->
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/20 text-sm">
+                <div>
+                    <span class="block text-sky-200">相對濕度</span>
+                    <span class="font-bold text-lg" id="humidity">--%</span>
+                </div>
+                <div>
+                    <span class="block text-sky-200">風向 / 風速</span>
+                    <span class="font-bold text-lg" id="wind">--</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="text-center pb-4 text-xs text-sky-200">
+        數據來源：澳門地球物理氣象局 (SMG)
+    </footer>
+
+    <!-- 前端讀取邏輯 -->
+    <script>
+        async function loadWeather() {
+            try {
+                const response = await fetch('./weather.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('無法讀取天氣資料');
+                
+                const data = await response.json();
+                
+                document.getElementById('update-time').innerText = `最後更新：${data.last_updated}`;
+                document.getElementById('temp').innerText = `${data.temperature}°C`;
+                document.getElementById('weather-desc').innerText = data.weather_desc;
+                document.getElementById('humidity').innerText = `${data.humidity}%`;
+                document.getElementById('wind').innerText = `${data.wind_direction} ${data.wind_speed}`;
+                
+            } catch (error) {
+                console.error(error);
+                document.getElementById('weather-desc').innerText = '暫時無法取得天氣';
+            }
+        }
+
+        loadWeather();
+    </script>
+</body>
+</html>
