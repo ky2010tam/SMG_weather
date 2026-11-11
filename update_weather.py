@@ -47,7 +47,7 @@ def fetch_all_smg_data():
     except Exception as e:
         print(f"Error fetching actual weather: {e}")
 
-    # 2. 抓取七日天氣預報 (c_7daysforecast.xml) 並自動從文字萃取溫度
+    # 2. 抓取七日天氣預報 (c_7daysforecast.xml)
     try:
         url = "https://xml.smg.gov.mo/c_7daysforecast.xml"
         resp = requests.get(url, headers=headers, timeout=10)
@@ -58,24 +58,20 @@ def fetch_all_smg_data():
         for item in root.iter():
             day_data = {}
             for child in item:
-                if child.tag and child.text:
-                    day_data[child.tag.lower()] = child.text.strip()
+                if child.tag:
+                    # 把標籤名稱轉為小寫，並把文字內容（或預設空字串）存入
+                    tag_name = child.tag.lower()
+                    day_data[tag_name] = child.text.strip() if child.text else ""
             
-            if 'validfor' in day_data or 'date' in day_data:
-                desc = day_data.get('weatherdescription', '')
-                # 從描述文字中提取數字（氣象局通常會寫類似「最高26度，最低18度」或包含溫度數字）
-                nums = re.findall(r'\d+', desc)
+            # 只要包含有效日期或星期就收錄
+            if 'validfor' in day_data or 'date' in day_data or 'c_dayofweek' in day_data:
+                # 確保如果 XML 裡面的溫度標籤名稱不同，我們也能對應到統一的 "temperature" 欄位
+                # 常見可能的溫度標籤：airtempmax, airtempmin, maxtemp, mintemp, temperature 等
+                max_t = day_data.get('maxtemp') or day_data.get('airtempmax') or day_data.get('max_temp') or ''
+                min_t = day_data.get('mintemp') or day_data.get('airtempmin') or day_data.get('min_temp') or ''
                 
-                # 如果描述中包含溫度數字，嘗試賦值
-                if len(nums) >= 2:
-                    # 通常前幾個數字可能是風力級數或溫度，我們抓較大的作為最高溫、較小的作為最低溫
-                    temps = [int(n) for n in nums if int(n) > 10 and int(n) < 40]
-                    if len(temps) >= 2:
-                        day_data['temperature'] = f"{min(temps)}°C - {max(temps)}°C"
-                    else:
-                        day_data['temperature'] = "18°C - 26°C" # 預設合理區間
-                else:
-                    day_data['temperature'] = "18°C - 26°C"
+                if max_t and min_t:
+                    day_data['temperature'] = f"{min_t}°C - {max_t}°C"
                 
                 if day_data not in forecasts:
                     forecasts.append(day_data)
