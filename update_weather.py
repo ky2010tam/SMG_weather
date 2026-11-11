@@ -42,26 +42,41 @@ def fetch_all_smg_data():
     except Exception as e:
         print(f"Error fetching actual brief: {e}")
 
-    # 2. 抓取各站詳細天氣 (c_actualweather.xml)
+    # 2. 抓取七日天氣預報 (c_7daysforecast.xml)
     try:
-        url = "https://xml.smg.gov.mo/c_actualweather.xml"
+        url = "https://xml.smg.gov.mo/c_7daysforecast.xml"
         resp = requests.get(url, headers=headers, timeout=10)
         resp.encoding = 'utf-8'
         root = ET.fromstring(resp.text)
         
-        stations = []
-        # 遍歷 XML 中代表各個測站或項目的節點
+        forecasts = []
         for item in root.iter():
-            station_data = {}
+            day_data = {}
             for child in item:
                 if child.tag and child.text:
-                    station_data[child.tag.lower()] = child.text.strip()
-            # 只要包含站名或測量數據就收錄
-            if station_data and station_data not in stations:
-                stations.append(station_data)
-        master_data["stations_weather"] = stations
+                    day_data[child.tag.lower()] = child.text.strip()
+            
+            # 如果包含有效日期，我們進行額外處理
+            if 'validfor' in day_data or 'date' in day_data:
+                # 確保 temperature 欄位有值（如果 XML 裡有 maxtemp/mintemp 就組合成字串或數值）
+                max_t = day_data.get('maxtemp') or day_data.get('max_temp') or ''
+                min_t = day_data.get('mintemp') or day_data.get('min_temp') or ''
+                
+                if max_t and min_t:
+                    day_data['temperature'] = f"{min_t} - {max_t}°C"
+                elif day_data.get('weatherdescription'):
+                    # 如果 XML 沒分開欄位，嘗試從描述文字（如「最高26度」）中提取
+                    import re
+                    nums = re.findall(r'\d+', day_data['weatherdescription'])
+                    if len(nums) >= 2:
+                        day_data['temperature'] = f"{nums[1]} - {nums[0]}°C"
+                
+                if day_data not in forecasts:
+                    forecasts.append(day_data)
+                    
+        master_data["forecast_7days"] = forecasts
     except Exception as e:
-        print(f"Error fetching actual weather stations: {e}")
+        print(f"Error fetching 7-day forecast: {e}")
 
     # 3. 抓取七日天氣預報 (c_7daysforecast.xml)
     try:
