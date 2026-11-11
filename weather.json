@@ -1,13 +1,84 @@
 {
-    "last_updated": "2026-11-11T08:39:29Z",
+    "last_updated": "2026-11-11T08:40:55Z",
     "current_weather": {
-        "temperature": "",
-        "humidity": "",
-        "weather_desc": "01",
-        "wind_direction": "",
+        "temperature": "--",
+        "humidity": "--",
+        "weather_desc": "天晴",
+        "wind_direction": "--",
         "wind_speed": "二級"
     },
-    "forecast_7days": [],
+    "forecast_7days": [
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-11",
+            "c_dayofweek": "三",
+            "icon": "",
+            "weatherstatus": "02",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "天氣乾燥。天晴，部份時間多雲。吹3至4級東北風。"
+        },
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-12",
+            "c_dayofweek": "四",
+            "icon": "",
+            "weatherstatus": "02",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "多雲，部份時間有陽光。吹3至4級東至東北風。"
+        },
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-13",
+            "c_dayofweek": "五",
+            "icon": "",
+            "weatherstatus": "29",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "多雲，短暫時間有陽光。晚間有幾陣驟雨。吹3至4級偏東風。"
+        },
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-14",
+            "c_dayofweek": "六",
+            "icon": "",
+            "weatherstatus": "16",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "大致多雲。間中有驟雨。吹微風。"
+        },
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-15",
+            "c_dayofweek": "日",
+            "icon": "",
+            "weatherstatus": "02",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "多雲，短暫時間有陽光。吹微風，後轉3至4級東至東南風。"
+        },
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-16",
+            "c_dayofweek": "一",
+            "icon": "",
+            "weatherstatus": "28",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "多雲，短暫時間有陽光。有幾陣雨。吹2至4級東至東南風。"
+        },
+        {
+            "astronomicaltide": "NIL",
+            "validfor": "2026-11-17",
+            "c_dayofweek": "二",
+            "icon": "",
+            "weatherstatus": "28",
+            "temperature": "",
+            "humidity": "",
+            "weatherdescription": "多雲，短暫時間有陽光。有幾陣雨。吹2至3級東至東南風。"
+        }
+    ],
     "air_quality": {
         "datetime": "2026-11-11 16:35",
         "pohopolu": {
