@@ -8,12 +8,12 @@ def fetch_macau_weather():
     headers = {'User-Agent': 'Mozilla/5.0'}
     
     # 將原本抓澳門時間的程式碼改為抓 UTC 標準時間
-utc_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    utc_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
-weather_data = {
+    weather_data = {
     "last_updated": utc_time,  # 格式會變成如 "2026-11-11T08:08:22Z"
     # ... 其餘氣象數據
-}
+    }
     
     try:
         resp = requests.get(url, headers=headers, timeout=10)
