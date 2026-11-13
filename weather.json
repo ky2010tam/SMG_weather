@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-11-13T18:10:59Z",
+    "last_updated": "2026-11-13T23:57:43Z",
     "current_weather": {
         "wind_speed": "二級",
         "weather_desc": "天晴"
@@ -7,7 +7,7 @@
     "stations_weather": [
         {
             "sysauthor": "DSMG-DDI",
-            "syspubdate": "2026-11-14 02:00",
+            "syspubdate": "2026-11-14 07:50",
             "syslanguage": "0",
             "version": "1.05"
         },
@@ -25,7 +25,7 @@
         },
         {
             "stationname": "紀念孫中山市政公園",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "°C",
@@ -37,155 +37,13 @@
             "measureunit": "°C",
             "type": "9",
             "value": "22",
-            "dvalue": "21.9"
+            "dvalue": "21.6"
         },
         {
             "measureunit": "°C",
             "type": "3",
             "value": "22",
             "dvalue": "22.0"
-        },
-        {
-            "measureunit": "%",
-            "type": "3",
-            "value": "97",
-            "dvalue": "97"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "21",
-            "dvalue": "21.4"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "10",
-            "dvalue": "10.1"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "4",
-            "dvalue": "3.6"
-        },
-        {
-            "measureunit": "mm",
-            "type": "3",
-            "value": "0.0",
-            "dvalue": "0.0"
-        },
-        {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "10.0",
-            "dvalue": "10.0"
-        },
-        {
-            "measureunit": "mm",
-            "type": "5",
-            "value": "17.4",
-            "dvalue": "17.4"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "ENE",
-            "dvalue": "ENE",
-            "degree": "62",
-            "winddescription": "東北偏東"
-        },
-        {
-            "feelslikelevel": "6",
-            "feelslikedescription": "溫暖"
-        },
-        {
-            "stationname": "黑沙環",
-            "recordtime": "2026-11-14 02:00"
-        },
-        {
-            "measureunit": "°C",
-            "type": "8",
-            "value": "23",
-            "dvalue": "23.3"
-        },
-        {
-            "measureunit": "°C",
-            "type": "9",
-            "value": "22",
-            "dvalue": "22.3"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "22",
-            "dvalue": "22.3"
-        },
-        {
-            "measureunit": "%",
-            "type": "3",
-            "value": "94",
-            "dvalue": "94"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "21",
-            "dvalue": "21.3"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "14",
-            "dvalue": "14.0"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "6",
-            "dvalue": "6.1"
-        },
-        {
-            "measureunit": "mm",
-            "type": "3",
-            "value": "0.2",
-            "dvalue": "0.2"
-        },
-        {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "12.0",
-            "dvalue": "12.0"
-        },
-        {
-            "measureunit": "mm",
-            "type": "5",
-            "value": "20.2",
-            "dvalue": "20.2"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "NNW",
-            "dvalue": "NNW",
-            "degree": "349",
-            "winddescription": "西北偏北"
-        },
-        {
-            "stationname": "大炮台",
-            "recordtime": "2026-11-14 02:00"
-        },
-        {
-            "measureunit": "°C",
-            "type": "9",
-            "value": "22",
-            "dvalue": "21.7"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "22",
-            "dvalue": "21.8"
         },
         {
             "measureunit": "%",
@@ -197,43 +55,167 @@
             "measureunit": "°C",
             "type": "3",
             "value": "21",
-            "dvalue": "21.0"
+            "dvalue": "21.2"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "21",
-            "dvalue": "20.5"
+            "value": "9",
+            "dvalue": "9.0"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "11",
-            "dvalue": "10.8"
+            "value": "1",
+            "dvalue": "1.4"
+        },
+        {
+            "measureunit": "mm",
+            "type": "3",
+            "value": "0.0",
+            "dvalue": "0.0"
         },
         {
             "measureunit": "mm",
             "type": "4",
-            "value": "8.2",
-            "dvalue": "8.2"
+            "value": "0.0",
+            "dvalue": "0.0"
         },
         {
             "measureunit": "mm",
             "type": "5",
-            "value": "14.0",
-            "dvalue": "14.0"
+            "value": "67.6",
+            "dvalue": "67.6"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "ENE",
-            "dvalue": "ENE",
-            "degree": "61",
-            "winddescription": "東北偏東"
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "329",
+            "winddescription": "西北"
+        },
+        {
+            "feelslikelevel": "6",
+            "feelslikedescription": "溫暖"
+        },
+        {
+            "stationname": "黑沙環",
+            "recordtime": "2026-11-14 07:50"
+        },
+        {
+            "measureunit": "°C",
+            "type": "8",
+            "value": "23",
+            "dvalue": "23.3"
+        },
+        {
+            "measureunit": "°C",
+            "type": "9",
+            "value": "22",
+            "dvalue": "22.0"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "23",
+            "dvalue": "22.9"
+        },
+        {
+            "measureunit": "%",
+            "type": "3",
+            "value": "88",
+            "dvalue": "88"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "21",
+            "dvalue": "20.8"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "5",
+            "dvalue": "4.7"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "1",
+            "dvalue": "1.1"
+        },
+        {
+            "measureunit": "mm",
+            "type": "5",
+            "value": "67.2",
+            "dvalue": "67.2"
+        },
+        {
+            "measureunit": "°",
+            "type": "3",
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "314",
+            "winddescription": "西北"
+        },
+        {
+            "stationname": "大炮台",
+            "recordtime": "2026-11-14 07:50"
+        },
+        {
+            "measureunit": "°C",
+            "type": "9",
+            "value": "21",
+            "dvalue": "21.1"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "22",
+            "dvalue": "21.5"
+        },
+        {
+            "measureunit": "%",
+            "type": "3",
+            "value": "92",
+            "dvalue": "92"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "20",
+            "dvalue": "20.2"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "14",
+            "dvalue": "13.7"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "8",
+            "dvalue": "8.3"
+        },
+        {
+            "measureunit": "mm",
+            "type": "5",
+            "value": "59.6",
+            "dvalue": "59.6"
+        },
+        {
+            "measureunit": "°",
+            "type": "3",
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "324",
+            "winddescription": "西北"
         },
         {
             "stationname": "外港",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "°C",
@@ -245,197 +227,79 @@
             "measureunit": "°C",
             "type": "9",
             "value": "22",
-            "dvalue": "22.1"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "22",
-            "dvalue": "22.2"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "26",
-            "dvalue": "26.3"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "15",
-            "dvalue": "15.1"
-        },
-        {
-            "measureunit": "mm",
-            "type": "3",
-            "value": "0.4",
-            "dvalue": "0.4"
-        },
-        {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "11.4",
-            "dvalue": "11.4"
-        },
-        {
-            "measureunit": "mm",
-            "type": "5",
-            "value": "20.0",
-            "dvalue": "20.0"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "NNE",
-            "dvalue": "NNE",
-            "degree": "17",
-            "winddescription": "東北偏北"
-        },
-        {
-            "measureunit": "hPa",
-            "type": "3",
-            "value": "1013.1",
-            "dvalue": "1013.1"
-        },
-        {
-            "measureunit": "hPa",
-            "type": "3",
-            "value": "1011.1",
-            "dvalue": "1011.1"
-        },
-        {
-            "stationname": "媽閣",
-            "recordtime": "2026-11-14 02:00"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "22",
-            "dvalue": "21.5"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "17",
-            "dvalue": "16.6"
-        },
-        {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "8.6",
-            "dvalue": "8.6"
-        },
-        {
-            "measureunit": "mm",
-            "type": "5",
-            "value": "14.4",
-            "dvalue": "14.4"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "N",
-            "dvalue": "N",
-            "degree": "9",
-            "winddescription": "北"
-        },
-        {
-            "measureunit": "hPa",
-            "type": "3",
-            "value": "1013.2",
-            "dvalue": "1013.2"
-        },
-        {
-            "measureunit": "hPa",
-            "type": "3",
-            "value": "1011.3",
-            "dvalue": "1011.3"
-        },
-        {
-            "stationname": "大潭山",
-            "recordtime": "2026-11-14 02:00"
-        },
-        {
-            "measureunit": "°C",
-            "type": "9",
-            "value": "22",
-            "dvalue": "21.6"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "22",
             "dvalue": "21.7"
         },
         {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "22",
+            "dvalue": "22.4"
+        },
+        {
             "measureunit": "%",
             "type": "3",
-            "value": "98",
-            "dvalue": "98"
+            "value": "90",
+            "dvalue": "90"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "21",
+            "dvalue": "20.7"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "29",
-            "dvalue": "28.8"
+            "value": "19",
+            "dvalue": "18.7"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "16",
-            "dvalue": "16.2"
-        },
-        {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "12.2",
-            "dvalue": "12.2"
+            "value": "13",
+            "dvalue": "12.6"
         },
         {
             "measureunit": "mm",
             "type": "5",
-            "value": "21.8",
-            "dvalue": "21.8"
+            "value": "69.8",
+            "dvalue": "69.8"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "NNE",
-            "dvalue": "NNE",
-            "degree": "24",
-            "winddescription": "東北偏北"
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "315",
+            "winddescription": "西北"
         },
         {
             "measureunit": "hPa",
             "type": "3",
-            "value": "1013.0",
-            "dvalue": "1013.0"
+            "value": "1014.1",
+            "dvalue": "1014.1"
         },
         {
             "measureunit": "hPa",
             "type": "3",
-            "value": "999.8",
-            "dvalue": "999.8"
+            "value": "1012.2",
+            "dvalue": "1012.2"
         },
         {
-            "feelslikelevel": "5",
-            "feelslikedescription": "和暖"
-        },
-        {
-            "stationname": "東亞運大馬路",
-            "recordtime": "2026-11-14 02:00"
-        },
-        {
-            "measureunit": "%",
-            "type": "3",
-            "value": "96",
-            "dvalue": "96"
+            "stationname": "媽閣",
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "°C",
             "type": "3",
             "value": "22",
-            "dvalue": "21.6"
+            "dvalue": "22.3"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "21",
+            "dvalue": "20.6"
         },
         {
             "measureunit": "km/h",
@@ -444,34 +308,136 @@
             "dvalue": "11.5"
         },
         {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "11.8",
-            "dvalue": "11.8"
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "6",
+            "dvalue": "5.8"
         },
         {
             "measureunit": "mm",
             "type": "5",
-            "value": "22.6",
-            "dvalue": "22.6"
+            "value": "60.6",
+            "dvalue": "60.6"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "W",
-            "dvalue": "W",
-            "degree": "279",
-            "winddescription": "西"
+            "value": "NNW",
+            "dvalue": "NNW",
+            "degree": "332",
+            "winddescription": "西北偏北"
         },
         {
             "measureunit": "hPa",
             "type": "3",
-            "value": "1012.3",
-            "dvalue": "1012.3"
+            "value": "1014.5",
+            "dvalue": "1014.5"
+        },
+        {
+            "measureunit": "hPa",
+            "type": "3",
+            "value": "1012.6",
+            "dvalue": "1012.6"
+        },
+        {
+            "stationname": "大潭山",
+            "recordtime": "2026-11-14 07:50"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "22",
+            "dvalue": "21.6"
+        },
+        {
+            "measureunit": "%",
+            "type": "3",
+            "value": "98",
+            "dvalue": "98"
+        },
+        {
+            "measureunit": "°C",
+            "type": "3",
+            "value": "21",
+            "dvalue": "21.3"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "18",
+            "dvalue": "17.6"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "10",
+            "dvalue": "10.4"
+        },
+        {
+            "measureunit": "mm",
+            "type": "5",
+            "value": "71.6",
+            "dvalue": "71.6"
+        },
+        {
+            "measureunit": "°",
+            "type": "3",
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "317",
+            "winddescription": "西北"
+        },
+        {
+            "measureunit": "hPa",
+            "type": "3",
+            "value": "1014.2",
+            "dvalue": "1014.2"
+        },
+        {
+            "measureunit": "hPa",
+            "type": "3",
+            "value": "1001.0",
+            "dvalue": "1001.0"
+        },
+        {
+            "stationname": "東亞運大馬路",
+            "recordtime": "2026-11-14 07:50"
+        },
+        {
+            "measureunit": "°C",
+            "type": "9",
+            "value": "22",
+            "dvalue": "21.8"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "5",
+            "dvalue": "5.0"
+        },
+        {
+            "measureunit": "mm",
+            "type": "5",
+            "value": "68.0",
+            "dvalue": "68.0"
+        },
+        {
+            "measureunit": "°",
+            "type": "3",
+            "value": "WSW",
+            "dvalue": "WSW",
+            "degree": "258",
+            "winddescription": "西南偏西"
+        },
+        {
+            "measureunit": "hPa",
+            "type": "3",
+            "value": "1013.5",
+            "dvalue": "1013.5"
         },
         {
             "stationname": "九澳",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "°C",
@@ -483,49 +449,49 @@
             "measureunit": "°C",
             "type": "9",
             "value": "22",
-            "dvalue": "22.2"
-        },
-        {
-            "measureunit": "°C",
-            "type": "3",
-            "value": "22",
-            "dvalue": "21.9"
+            "dvalue": "21.5"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "27",
-            "dvalue": "26.6"
+            "value": "12",
+            "dvalue": "11.9"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "17",
-            "dvalue": "16.9"
+            "value": "8",
+            "dvalue": "7.9"
         },
         {
             "measureunit": "mm",
             "type": "5",
-            "value": "17.0",
-            "dvalue": "17.0"
+            "value": "76.6",
+            "dvalue": "76.6"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "34",
-            "winddescription": "東北"
+            "value": "NNW",
+            "dvalue": "NNW",
+            "degree": "346",
+            "winddescription": "西北偏北"
         },
         {
             "measureunit": "hPa",
             "type": "3",
-            "value": "1009.9",
-            "dvalue": "1009.9"
+            "value": "1014.4",
+            "dvalue": "1014.4"
+        },
+        {
+            "measureunit": "hPa",
+            "type": "3",
+            "value": "1011.0",
+            "dvalue": "1011.0"
         },
         {
             "stationname": "澳門大學",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "°C",
@@ -534,52 +500,52 @@
             "dvalue": "23.5"
         },
         {
-            "measureunit": "°C",
-            "type": "9",
-            "value": "22",
-            "dvalue": "22.5"
+            "measureunit": "%",
+            "type": "3",
+            "value": "93",
+            "dvalue": "93"
         },
         {
             "measureunit": "°C",
             "type": "3",
-            "value": "22",
-            "dvalue": "22.5"
+            "value": "21",
+            "dvalue": "20.9"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "26",
-            "dvalue": "25.6"
+            "value": "13",
+            "dvalue": "13.3"
+        },
+        {
+            "measureunit": "km/h",
+            "type": "3",
+            "value": "6",
+            "dvalue": "6.5"
         },
         {
             "measureunit": "mm",
             "type": "5",
-            "value": "16.4",
-            "dvalue": "16.4"
+            "value": "70.6",
+            "dvalue": "70.6"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "ENE",
-            "dvalue": "ENE",
-            "degree": "75",
-            "winddescription": "東北偏東"
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "313",
+            "winddescription": "西北"
         },
         {
             "measureunit": "hPa",
             "type": "3",
-            "value": "1012.7",
-            "dvalue": "1012.7"
-        },
-        {
-            "measureunit": "hPa",
-            "type": "3",
-            "value": "1012.0",
-            "dvalue": "1012.0"
+            "value": "1013.4",
+            "dvalue": "1013.4"
         },
         {
             "stationname": "路環市區",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "°C",
@@ -590,188 +556,122 @@
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "23",
-            "dvalue": "22.7"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "10",
-            "dvalue": "9.7"
-        },
-        {
-            "measureunit": "mm",
-            "type": "4",
-            "value": "7.8",
-            "dvalue": "7.8"
+            "value": "12",
+            "dvalue": "12.2"
         },
         {
             "measureunit": "mm",
             "type": "5",
-            "value": "15.2",
-            "dvalue": "15.2"
+            "value": "74.2",
+            "dvalue": "74.2"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "56",
-            "winddescription": "東北"
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "319",
+            "winddescription": "西北"
         },
         {
             "stationname": "澳門大橋北",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "37",
-            "dvalue": "37.4"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "25",
-            "dvalue": "25.2"
+            "value": "17",
+            "dvalue": "17.3"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "31",
-            "winddescription": "東北"
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "326",
+            "winddescription": "西北"
         },
         {
             "stationname": "澳門大橋南",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "38",
-            "dvalue": "38.2"
+            "value": "20",
+            "dvalue": "19.8"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "27",
-            "dvalue": "27.0"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "37",
-            "winddescription": "東北"
+            "value": "17",
+            "dvalue": "16.6"
         },
         {
             "stationname": "友誼大橋北",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "30",
-            "dvalue": "29.9"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "22",
-            "dvalue": "22.0"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "NNE",
-            "dvalue": "NNE",
-            "degree": "29",
-            "winddescription": "東北偏北"
+            "value": "14",
+            "dvalue": "14.4"
         },
         {
             "stationname": "友誼大橋南",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "37",
-            "dvalue": "36.7"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "29",
-            "dvalue": "29.2"
-        },
-        {
-            "measureunit": "°",
-            "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "40",
-            "winddescription": "東北"
+            "value": "15",
+            "dvalue": "14.8"
         },
         {
             "stationname": "嘉樂庇總督大橋",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "35",
-            "dvalue": "34.6"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "24",
-            "dvalue": "24.5"
+            "value": "11",
+            "dvalue": "11.2"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "38",
-            "winddescription": "東北"
+            "value": "NW",
+            "dvalue": "NW",
+            "degree": "318",
+            "winddescription": "西北"
         },
         {
             "stationname": "西灣大橋",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "28",
-            "dvalue": "28.1"
+            "value": "6",
+            "dvalue": "6.1"
         },
         {
             "stationname": "蓮花大橋",
-            "recordtime": "2026-11-14 02:00"
+            "recordtime": "2026-11-14 07:50"
         },
         {
             "measureunit": "km/h",
             "type": "3",
-            "value": "36",
-            "dvalue": "35.6"
-        },
-        {
-            "measureunit": "km/h",
-            "type": "3",
-            "value": "22",
-            "dvalue": "22.3"
+            "value": "13",
+            "dvalue": "13.0"
         },
         {
             "measureunit": "°",
             "type": "3",
-            "value": "NE",
-            "dvalue": "NE",
-            "degree": "39",
-            "winddescription": "東北"
+            "value": "WNW",
+            "dvalue": "WNW",
+            "degree": "281",
+            "winddescription": "西北偏西"
         }
     ],
     "forecast_7days": [
@@ -780,10 +680,10 @@
             "validfor": "2026-11-14",
             "c_dayofweek": "六",
             "icon": "",
-            "weatherstatus": "18",
+            "weatherstatus": "02",
             "temperature": "",
             "humidity": "",
-            "weatherdescription": "多雲，後轉天晴。有驟雨及初時雨勢有時頗大。有幾陣雷暴。日間雨勢逐漸減弱。吹3至4級偏南風及有陣風，後轉偏北風。"
+            "weatherdescription": "多雲，後轉天晴。初時有一兩陣驟雨。吹2至4級北至西北風。"
         },
         {
             "astronomicaltide": "NIL",
@@ -793,7 +693,7 @@
             "weatherstatus": "02",
             "temperature": "",
             "humidity": "",
-            "weatherdescription": "天晴，部份時間多雲。吹微風，後轉3至4級東至東南風。"
+            "weatherdescription": "天晴，部份時間多雲。吹2至3級偏北風，後轉東至東南風。"
         },
         {
             "astronomicaltide": "NIL",
@@ -840,91 +740,91 @@
             "validfor": "2026-11-20",
             "c_dayofweek": "五",
             "icon": "",
-            "weatherstatus": "02",
+            "weatherstatus": "03",
             "temperature": "",
             "humidity": "",
-            "weatherdescription": "多雲，短暫時間有陽光。吹3至4級北至東北風。"
+            "weatherdescription": "大致多雲。吹3至4級偏北風。"
         }
     ],
     "air_quality": {
-        "datetime": "2026-11-14 01:45",
+        "datetime": "2026-11-14 07:45",
         "pohopolu": {
             "Chinese": "荷蘭園（路邊）",
             "Portuguese": "Conselheiro Ferreira de Almeida (Berma da Estrada)",
             "English": "Conselheiro Ferreira de Almeida (Roadside)",
-            "DDTT": "2026111401",
+            "DDTT": "2026111407",
             "CODE": "PO",
-            "HE_CO": "0.338",
-            "HE_SO2": "3.100",
-            "HE_PM10": "17.000",
-            "HE_PM2_5": "13.000",
-            "HE_NO2": "29.392",
-            "HE_O3": "35.213"
+            "HE_NO2": "33.354",
+            "HE_SO2": "3.928",
+            "HE_PM10": "6.000",
+            "HE_PM2_5": "9.000",
+            "HE_O3": "14.250",
+            "HE_CO": "0.489"
         },
         "khhopolu": {
             "Chinese": "九澳（路邊）",
             "Portuguese": "Ka-Hó (Berma da Estrada)",
             "English": "Ka-Hó (Roadside)",
-            "DDTT": "2026111401",
+            "DDTT": "2026111407",
             "CODE": "KH",
-            "HE_CO": "0.406",
-            "HE_SO2": "4.162",
-            "HE_PM10": "20.000",
-            "HE_PM2_5": "12.000",
-            "HE_NO2": "19.394",
-            "HE_O3": "65.160"
+            "HE_NO2": "18.374",
+            "HE_SO2": "4.446",
+            "HE_PM10": "7.000",
+            "HE_PM2_5": "4.000",
+            "HE_O3": "38.807",
+            "HE_CO": "0.500"
         },
         "enhopolu": {
             "Chinese": "台山（高密度住宅區）",
             "Portuguese": "Bairro de Tamagnini Barbosa (Alta Densidade Habitacional)",
             "English": "Bairro de Tamagnini Barbosa (High Density Residental Area)",
-            "DDTT": "2026111401",
+            "DDTT": "2026111407",
             "CODE": "EN",
-            "HE_CO": "0.100",
-            "HE_SO2": "3.168",
-            "HE_PM10": "19.000",
-            "HE_PM2_5": "5.000",
-            "HE_NO2": "19.613",
-            "HE_O3": "60.911"
+            "HE_NO2": "24.299",
+            "HE_SO2": "3.829",
+            "HE_PM10": "8.000",
+            "HE_PM2_5": "4.000",
+            "HE_O3": "23.934",
+            "HE_CO": "0.324"
         },
         "tchopolu": {
             "Chinese": "氹仔中心區（高密度住宅區）",
             "Portuguese": "Baixa da Taipa (Alta Densidade Habitacional)",
             "English": "Baixa da Taipa (High Density Residental Area)",
-            "DDTT": "2026111401",
+            "DDTT": "2026111407",
             "CODE": "TC",
-            "HE_CO": "0.525",
-            "HE_SO2": "1.782",
-            "HE_PM10": "24.000",
-            "HE_PM2_5": "16.000",
-            "HE_NO2": "25.259",
-            "HE_O3": "46.434"
+            "HE_NO2": "20.604",
+            "HE_SO2": "2.195",
+            "HE_PM10": "6.000",
+            "HE_PM2_5": "7.000",
+            "HE_O3": "27.139",
+            "HE_CO": "0.568"
         },
         "tghopolu": {
             "Chinese": "大潭山（一般性）",
             "Portuguese": "Taipa Grande (Ambiental)",
             "English": "Taipa Grande (Ambient)",
-            "DDTT": "2026111401",
+            "DDTT": "2026111407",
             "CODE": "TG",
-            "HE_CO": null,
-            "HE_SO2": null,
-            "HE_PM10": "17.000",
-            "HE_PM2_5": "9.000",
-            "HE_NO2": null,
-            "HE_O3": null
+            "HE_NO2": "18.989",
+            "HE_SO2": "0.716",
+            "HE_PM10": "5.000",
+            "HE_PM2_5": "2.000",
+            "HE_O3": "34.522",
+            "HE_CO": "0.906"
         },
         "cdhopolu": {
             "Chinese": "石排灣（一般性）",
             "Portuguese": "Seac Pai Van (Ambiental)",
             "English": "Seac Pai Van (Ambient)",
-            "DDTT": "2026111401",
+            "DDTT": "2026111407",
             "CODE": "CD",
-            "HE_CO": "0.774",
-            "HE_SO2": "0.026",
-            "HE_PM10": "17.000",
-            "HE_PM2_5": "6.000",
-            "HE_NO2": "25.477",
-            "HE_O3": "58.671"
+            "HE_NO2": "23.243",
+            "HE_SO2": "0.067",
+            "HE_PM10": "6.000",
+            "HE_PM2_5": "5.000",
+            "HE_O3": "30.132",
+            "HE_CO": "0.891"
         }
     }
 }
